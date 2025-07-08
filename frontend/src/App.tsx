@@ -42,7 +42,7 @@ function App() {
           <div className="flex flex-col justify-between h-full">
             <div className="h-full rounded space-y-2 my-4 pt-4 pb-10 overflow-y-auto scrollbar-thin">
               {(chat.length <= 0) && 
-                <div className="py-8 rounded px-8 overflow-hidden bg-blue-100 text-blue-900 text-right">Start new chat e.g "Hi chatBoy! how are you ?"</div> 
+                <div className="py-8 rounded px-8 overflow-hidden bg-blue-100 text-blue-900 text-right">Start a new conversation e.g "Hi chat! how are you ?"</div> 
               }
               {chat.map((msg, i) => (
                 <div key={i} className={`py-8 rounded px-8 overflow-hidden ${msg.sender === "user" ? "bg-blue-100 text-blue-900 text-right" : "bg-gray-200 text-gray-900 text-left"}`}>            
