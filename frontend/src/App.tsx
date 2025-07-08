@@ -19,7 +19,7 @@ function App() {
     setChat((prev) => [...prev, userMsg]);
     setInput("");
     try {
-      const res = await axios.post("http://localhost:3000/chat", {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/chat`, {
         message: input,
       });
 
