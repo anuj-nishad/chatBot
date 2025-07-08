@@ -1,6 +1,6 @@
 require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
 import OpenAI from "openai";
 
 const app = express();
@@ -10,7 +10,9 @@ app.use(cors())
 app.use(express.json())
 
 const openai = new OpenAI({
-  apiKey : process.env.OPENAI_API_KEY,
+  baseURL: "https://openrouter.ai/api/v1",
+  apiKey : process.env.OPENROUTER_API_KEY,
+
 });
 
 app.post('/chat',async(req:any,res:any)=>{
@@ -18,8 +20,14 @@ app.post('/chat',async(req:any,res:any)=>{
 
   try{
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [{role: "user", content: message}]
+      model: "openrouter/cypher-alpha:free",
+      messages: [
+        {
+          "role": "user",
+          "content": message,
+        }
+      ],
+      
     });
 
     const reply = response.choices[0].message.content;
@@ -33,5 +41,5 @@ catch(error){
 });
 
 app.listen(PORT,()=>{
-  console.log('Server Started')
+  console.log(`Server Started on PORT ${PORT}`)
 })

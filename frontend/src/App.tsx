@@ -23,7 +23,7 @@ function App() {
         message: input,
       });
 
-      const botMsg: ChatProps = { sender: "bot", text: res.data.reply.content };
+      const botMsg: ChatProps = { sender: "bot", text: res.data.reply };
       setResLoading(false);
       setChat((prev) => [...prev, botMsg]);
     } catch (err) {
@@ -50,8 +50,8 @@ function App() {
                 </div>
               ))}
               {resLoading && (
-                <div className="flex space-x-2 py-8 rounded px-8 overflow-hidden bg-gray-200 text-gray-900 text-left">
-                  <LuLoader size={"28px"} className="animate-spin" />
+                <div className="flex items-center space-x-2 py-8 rounded px-8 overflow-hidden bg-gray-200 text-gray-900 text-left">
+                  <LuLoader size={"28px"} className="animate-spin"/>
                   <p>Chatbot is typing…</p>
                 </div>
               )}
