@@ -34,8 +34,8 @@ function App() {
 
   return (
     <div>
-      <div className="w-full p-6 pt-12 min-h-screen bg-gradient-to-r from-blue-200 to-cyan-200">
-        <div className="mx-auto w-[50%] h-[85vh]">
+      <div className="w-full p-6 pt-12 h-screen bg-gradient-to-r from-blue-200 to-cyan-200">
+        <div className="h-[75%]">
           <div>
             <h1 className="text-4xl text-blue-800 font-bold mb-4">Chat With Me !</h1>
           </div>
